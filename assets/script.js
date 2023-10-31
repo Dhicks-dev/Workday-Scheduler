@@ -19,8 +19,8 @@ $(function () {
 
   }
 // The function will save the user entry to local storage when save button is clicked
-  function userEntry (){
-    $('.savBtn').on('click', function() {
+  function userEntry() {
+    $('.saveBtn').on('click', function() {
       const key = $(this).parent().attr('id');
       const value = $(this).siblings('.description').val();
       localStorage.setItem(key, value);
