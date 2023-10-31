@@ -5,10 +5,10 @@ const localeSettings = {};
 dayjs.locale(localeSettings);
 
 $(function () {
-
+    // using dayjs library
   const curHour = dayjs().format('H');
 
-// changes color of time block pending the time
+// changes color of time block pending hour
   function hourColor() {
     $('.time-block').each(function() {
       const blockHour = parseInt(this.id);
@@ -18,8 +18,14 @@ $(function () {
     });
 
   }
-
-  
+// The function will save the user entry to local storage when save button is clicked
+  function userEntry (){
+    $('.savBtn').on('click', function() {
+      const key = $(this).parent().attr('id');
+      const value = $(this).siblings('.description').val();
+      localStorage.setItem(key, value);
+    }); 
+  }
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
